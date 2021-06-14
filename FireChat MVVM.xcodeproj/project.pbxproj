@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		F032352F2671033700051924 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032352E2671033700051924 /* LoginController.swift */; };
 		F03235312671036800051924 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03235302671036800051924 /* RegistrationController.swift */; };
-		F032353526711A4500051924 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032353426711A4500051924 /* Extensions.swift */; };
+		F0E067672672262000187673 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E067662672262000187673 /* Extensions.swift */; };
+		F0E067692672366300187673 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E067682672366300187673 /* InputContainerView.swift */; };
+		F0E0676B26723CB900187673 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E0676A26723CB900187673 /* CustomTextField.swift */; };
 		F0F9F7E526700B3B00C9A952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9F7E426700B3B00C9A952 /* AppDelegate.swift */; };
 		F0F9F7E726700B3B00C9A952 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9F7E626700B3B00C9A952 /* ViewController.swift */; };
 		F0F9F7EA26700B3B00C9A952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F9F7E826700B3B00C9A952 /* Main.storyboard */; };
@@ -22,7 +24,9 @@
 /* Begin PBXFileReference section */
 		F032352E2671033700051924 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F03235302671036800051924 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
-		F032353426711A4500051924 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = SOURCE_ROOT; };
+		F0E067662672262000187673 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F0E067682672366300187673 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
+		F0E0676A26723CB900187673 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F0F9F7E126700B3B00C9A952 /* FireChat MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F9F7E426700B3B00C9A952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0F9F7E626700B3B00C9A952 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		F0F9F7F726700DAD00C9A952 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F032353426711A4500051924 /* Extensions.swift */,
+				F0E067662672262000187673 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -124,6 +128,8 @@
 		F0F9F7FD26700DD600C9A952 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F0E067682672366300187673 /* InputContainerView.swift */,
+				F0E0676A26723CB900187673 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,12 +213,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0F9F7E726700B3B00C9A952 /* ViewController.swift in Sources */,
+				F0E067692672366300187673 /* InputContainerView.swift in Sources */,
 				F0F9F80026701C9E00C9A952 /* ConversationsController.swift in Sources */,
-				F032353526711A4500051924 /* Extensions.swift in Sources */,
 				F0F9F80226702ABD00C9A952 /* MainNavigationController.swift in Sources */,
 				F0F9F7E526700B3B00C9A952 /* AppDelegate.swift in Sources */,
 				F03235312671036800051924 /* RegistrationController.swift in Sources */,
 				F032352F2671033700051924 /* LoginController.swift in Sources */,
+				F0E067672672262000187673 /* Extensions.swift in Sources */,
+				F0E0676B26723CB900187673 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
