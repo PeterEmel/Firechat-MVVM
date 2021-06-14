@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ConversationsController : UIViewController {
     
@@ -19,12 +20,34 @@ class ConversationsController : UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        authenticateUser()
     }
     
     // Mark: - Selectors
     @objc func showProfile() {
-        
+        logout()
+        authenticateUser()
     }
+    
+    // MARK: - API
+    func authenticateUser() {
+        if Auth.auth().currentUser?.uid == nil {
+            print ("user is not logged in")
+            presentLoginScreen()
+        } else {
+            print("DEBUG: user is logged in")
+        }
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            presentLoginScreen()
+        } catch {
+            print("Error signnig out")
+        }
+    }
+    // MARK: - Helpers
     
     func configureUI() {
         view.backgroundColor = .white
@@ -56,6 +79,15 @@ class ConversationsController : UIViewController {
         navigationItem.title = "Messages"
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black
+    }
+    
+    func presentLoginScreen() {
+        DispatchQueue.main.async {
+            let controller = LoginController()
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
+        }
     }
     
 }
