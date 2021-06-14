@@ -12,6 +12,8 @@
 		F0E067672672262000187673 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E067662672262000187673 /* Extensions.swift */; };
 		F0E067692672366300187673 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E067682672366300187673 /* InputContainerView.swift */; };
 		F0E0676B26723CB900187673 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E0676A26723CB900187673 /* CustomTextField.swift */; };
+		F0F6A824267757940063C9FB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F6A823267757940063C9FB /* CustomButton.swift */; };
+		F0F6A82626775AAB0063C9FB /* AccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F6A82526775AAB0063C9FB /* AccountButton.swift */; };
 		F0F9F7E526700B3B00C9A952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9F7E426700B3B00C9A952 /* AppDelegate.swift */; };
 		F0F9F7E726700B3B00C9A952 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9F7E626700B3B00C9A952 /* ViewController.swift */; };
 		F0F9F7EA26700B3B00C9A952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F9F7E826700B3B00C9A952 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		F0E067662672262000187673 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F0E067682672366300187673 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		F0E0676A26723CB900187673 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F0F6A823267757940063C9FB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		F0F6A82526775AAB0063C9FB /* AccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
 		F0F9F7E126700B3B00C9A952 /* FireChat MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F9F7E426700B3B00C9A952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0F9F7E626700B3B00C9A952 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			children = (
 				F0E067682672366300187673 /* InputContainerView.swift */,
 				F0E0676A26723CB900187673 /* CustomTextField.swift */,
+				F0F6A823267757940063C9FB /* CustomButton.swift */,
+				F0F6A82526775AAB0063C9FB /* AccountButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +222,8 @@
 				F0E067692672366300187673 /* InputContainerView.swift in Sources */,
 				F0F9F80026701C9E00C9A952 /* ConversationsController.swift in Sources */,
 				F0F9F80226702ABD00C9A952 /* MainNavigationController.swift in Sources */,
+				F0F6A824267757940063C9FB /* CustomButton.swift in Sources */,
+				F0F6A82626775AAB0063C9FB /* AccountButton.swift in Sources */,
 				F0F9F7E526700B3B00C9A952 /* AppDelegate.swift in Sources */,
 				F03235312671036800051924 /* RegistrationController.swift in Sources */,
 				F032352F2671033700051924 /* LoginController.swift in Sources */,

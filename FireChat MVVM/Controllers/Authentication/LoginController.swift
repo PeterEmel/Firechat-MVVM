@@ -26,24 +26,10 @@ class LoginController : UIViewController {
         return InputContainerView(image: UIImage(named: "lock"), textField: passwordTextField)
     }()
     
-    private let loginButton : UIButton = {
-        let button = UIButton()
-        button.setTitle("Log In", for: .normal)
-        button.layer.cornerRadius = 5
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.setHeight(height: 50)
-        return button
-    }()
+    private let loginButton = CustomButton(title: "Log In")
     
     private let dontHaveAccountButton : UIButton = {
-        let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.white])
-        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.white]))
-        
-        button.setAttributedTitle(attributedTitle, for: .normal)
-        
+        let button = AccountButton(title: "Don't have an account? ", title2: "Sign Up")
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
@@ -91,11 +77,4 @@ class LoginController : UIViewController {
 
     }
     
-    func configureGradientLayer() {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor(red: 191/255, green: 90/255, blue: 242/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1).cgColor]
-        gradient.locations = [0,1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-    }
 }

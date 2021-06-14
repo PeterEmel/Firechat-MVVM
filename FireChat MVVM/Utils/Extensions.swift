@@ -81,16 +81,16 @@ extension UIView {
     }
 }
 
-//extension UIViewController {
+extension UIViewController {
 //    static let hud = JGProgressHUD(style: .dark)
-//
-//    func configureGradientLayer() {
-//        let gradient = CAGradientLayer()
-//        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemPink.cgColor]
-//        gradient.locations = [0, 1]
-//        view.layer.addSublayer(gradient)
-//        gradient.frame = view.frame
-//    }
+
+    func configureGradientLayer() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor(red: 191/255, green: 90/255, blue: 242/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1).cgColor]
+        gradient.locations = [0,1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+    }
 //
 //    func showLoader(_ show: Bool, withText text: String? = "Loading") {
 //        view.endEditing(true)
@@ -126,4 +126,4 @@ extension UIView {
 //        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
 //        present(alert, animated: true, completion: nil)
 //    }
-//}
+}
