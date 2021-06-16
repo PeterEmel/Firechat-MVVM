@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import JGProgressHUD
 
 class RegisterationController : UIViewController {
     
@@ -108,41 +109,32 @@ class RegisterationController : UIViewController {
         guard let username = usernameTextField.text?.lowercased() else {return}
         guard let password = passwordTextField.text else {return}
         guard let profileImage = profileImage else {return}
-         
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else {return}
-        let filename = NSUUID().uuidString
-        let ref = Storage.storage().reference(withPath: "/profile_images/\(filename)")
-        ref.putData(imageData, metadata: nil) { (meta, error) in
+        
+        showLoader(true, withText: "Signing up")
+        
+        let credentials = RegistrationCredentials(email: email, fullname: fullname, username: username, password: password, profileImage: profileImage)
+        AuthService.shared.createUser(credentials: credentials) { (error) in
             if let error = error {
-                print("DEBUG: Failed to upload image with error \(error.localizedDescription)")
+                print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+                self.showLoader(false)
                 return
             }
-            ref.downloadURL(completion: { (url, error) in
-                guard let profileImageUrl = url?.absoluteString else {return}
-                
-                Auth.auth().createUser(withEmail: email, password: password, completion: { (result, error) in
-                    if let error = error {
-                        print("DEBUG: Failed to create user with error \(error.localizedDescription)")
-                        return
-                    }
-                    guard let uid = result?.user.uid else {return}
-                    
-                    let data = ["email":email, "fullname": fullname, "profileImageUrl": profileImageUrl,"uid": uid, "username": username] as [String: Any]
-                    
-                    Firestore.firestore().collection("users").document(uid).setData(data, completion: { (error) in
-                        if let error = error {
-                            print("Didn't create user. \(error.localizedDescription)")
-                        } else {
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                    })
-                    
-                })
-            })
-        
+            self.showLoader(false)
+            self.dismiss(animated: true, completion: nil)
         }
-
     }
+    
+    @ objc func keyboardWillShow() {
+        if view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 92
+        }
+    }
+    @ objc func keyboardWillHide() {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     
     // MARK: - Helpers
     
@@ -180,6 +172,10 @@ class RegisterationController : UIViewController {
         fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
 extension RegisterationController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
