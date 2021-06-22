@@ -91,7 +91,7 @@ extension UIViewController {
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
     }
-//
+
     func showLoader(_ show: Bool, withText text: String? = "Loading") {
         view.endEditing(true)
         UIViewController.hud.textLabel.text = text

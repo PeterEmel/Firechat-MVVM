@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol NewMessageControllerDelegate: class {
+    func controller(_ controller: NewMessageController, wantsToStartChatWith user: User)
+}
+
 class NewMessageController: UITableViewController {
  
     //MARk: - Properties
     private let reuseIdentifier = "UserCell"
     private var users = [User]()
+    weak var delegate: NewMessageControllerDelegate?
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -40,7 +45,7 @@ class NewMessageController: UITableViewController {
     //MARK: - Helpers
     
     func configureUI() {
-        configureNavigationBar(withTitle: "New Messages", prefersLargeTitles: true)
+        configureNavigationBar(withTitle: "New Messages", prefersLargeTitles: false)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleDismissal))
         tableView.tableFooterView = UIView()
         tableView.register(UserCell.self, forCellReuseIdentifier: reuseIdentifier)
@@ -56,5 +61,10 @@ extension NewMessageController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UserCell
         cell.user = users[indexPath.row]
         return cell
+    }
+}
+extension NewMessageController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.controller(self, wantsToStartChatWith: users[indexPath.row])
     }
 }
