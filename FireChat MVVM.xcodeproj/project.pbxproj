@@ -16,6 +16,8 @@
 		F0723BBA267A32E700E88C1B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0723BB9267A32E700E88C1B /* User.swift */; };
 		F0723BBC267A339A00E88C1B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0723BBB267A339A00E88C1B /* Service.swift */; };
 		F0723BBE267A830E00E88C1B /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0723BBD267A830E00E88C1B /* ChatController.swift */; };
+		F09A96FC26839EB8000AE8D8 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09A96FB26839EB8000AE8D8 /* ConversationCell.swift */; };
+		F09A96FE2683A537000AE8D8 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09A96FD2683A537000AE8D8 /* ConversationViewModel.swift */; };
 		F0AAB6A02678BFB400FFCE6C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AAB69F2678BFB400FFCE6C /* AuthService.swift */; };
 		F0AAB6A226793A7F00FFCE6C /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AAB6A126793A7F00FFCE6C /* NewMessageController.swift */; };
 		F0B3D9B0267B6F0F0021F6AA /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3D9AF267B6F0F0021F6AA /* CustomInputAccessoryView.swift */; };
@@ -50,6 +52,8 @@
 		F0723BB9267A32E700E88C1B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F0723BBB267A339A00E88C1B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F0723BBD267A830E00E88C1B /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		F09A96FB26839EB8000AE8D8 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		F09A96FD2683A537000AE8D8 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
 		F0AAB69F2678BFB400FFCE6C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F0AAB6A126793A7F00FFCE6C /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		F0B3D9AF267B6F0F0021F6AA /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			children = (
 				F0F6A82B26778AF30063C9FB /* Authentication */,
 				F00F9BBD267D097E00A4C406 /* MessageViewModel.swift */,
+				F09A96FD2683A537000AE8D8 /* ConversationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				F0723BB7267A187A00E88C1B /* UserCell.swift */,
 				F0B3D9AF267B6F0F0021F6AA /* CustomInputAccessoryView.swift */,
 				F0B3D9B1267BA9BB0021F6AA /* MessageCell.swift */,
+				F09A96FB26839EB8000AE8D8 /* ConversationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				F0723BBA267A32E700E88C1B /* User.swift in Sources */,
 				F03235312671036800051924 /* RegistrationController.swift in Sources */,
 				F0723BB8267A187A00E88C1B /* UserCell.swift in Sources */,
+				F09A96FE2683A537000AE8D8 /* ConversationViewModel.swift in Sources */,
 				F0F6A82A26778A930063C9FB /* RegisterViewModel.swift in Sources */,
 				F0F6A8282677617B0063C9FB /* LoginViewModel.swift in Sources */,
 				F0723BBE267A830E00E88C1B /* ChatController.swift in Sources */,
@@ -361,6 +368,7 @@
 				F0B3D9B2267BA9BB0021F6AA /* MessageCell.swift in Sources */,
 				F00F9BBE267D097F00A4C406 /* MessageViewModel.swift in Sources */,
 				F0C653DD268211A400A53A3A /* Constants.swift in Sources */,
+				F09A96FC26839EB8000AE8D8 /* ConversationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
