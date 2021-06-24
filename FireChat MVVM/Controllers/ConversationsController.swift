@@ -43,8 +43,14 @@ class ConversationsController : UIViewController {
     
     // Mark: - Selectors
     @objc func showProfile() {
-        logout()
-        authenticateUser()
+        let controller = ProfileController(style: .grouped)
+        controller.delegate = self
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+        
+//        logout()
+//        authenticateUser()
     }
     
     @objc func showNewMessage() {
@@ -80,7 +86,6 @@ class ConversationsController : UIViewController {
             self.tableView.reloadData()
         }
     }
-    
     
     // MARK: - Helpers
     
@@ -151,6 +156,10 @@ extension ConversationsController: NewMessageControllerDelegate {
         
         showChatController(forUser: user)
     }
-    
-    
+}
+
+extension ConversationsController: ProfileControllerDelegate {
+    func handleLogout() {
+        logout()
+    }
 }
