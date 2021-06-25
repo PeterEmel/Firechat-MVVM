@@ -121,11 +121,7 @@ extension UIViewController {
 //        navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
 //    }
 //
-//    func showError(_ errorMessage: String) {
-//        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-//        present(alert, animated: true, completion: nil)
-//    }
+
     
     func configureNavigationBar(withTitle title: String, prefersLargeTitles: Bool) {
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -136,5 +132,12 @@ extension UIViewController {
         navigationItem.title = title
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black
+    }
+    
+    
+    func showError(_ errorMessage: String) {
+        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }

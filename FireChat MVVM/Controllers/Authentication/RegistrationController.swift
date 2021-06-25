@@ -16,6 +16,8 @@ class RegisterationController : UIViewController {
     
     private var viewModel = RegisterViewModel()
     
+    weak var delegate: AuthenticationDelegate?
+    
     private var profileImage: UIImage?
    
     private let plusPhotoButton: UIButton = {
@@ -66,7 +68,7 @@ class RegisterationController : UIViewController {
     private let alreadyHaveAccountButton : UIButton = {
         let button = AccountButton(title: "Already have an account? ", title2: "Sign In")
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
-        button.isEnabled = false
+        button.isEnabled = true
         
         return button
     }()
@@ -115,13 +117,12 @@ class RegisterationController : UIViewController {
         let credentials = RegistrationCredentials(email: email, fullname: fullname, username: username, password: password, profileImage: profileImage)
         AuthService.shared.createUser(credentials: credentials) { (error) in
             if let error = error {
-                print("DEBUG: Failed to create user with error \(error.localizedDescription)")
                 self.showLoader(false)
+                self.showError(error.localizedDescription)
                 return
             }
             self.showLoader(false)
-            self.dismiss(animated: true, completion: nil)
-        }
+            self.delegate?.authenticationComplete()        }
     }
     
     @ objc func keyboardWillShow() {

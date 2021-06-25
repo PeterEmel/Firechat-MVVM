@@ -53,7 +53,11 @@ class ChatController: UICollectionViewController {
     //MARK: - API
     
     func fetchMessage() {
+        showLoader(true)
+        
         Service.fetchMessages(forUser: user) { (messages) in
+            self.showLoader(false)
+            
             self.messages = messages
             self.collectionView.reloadData()
             

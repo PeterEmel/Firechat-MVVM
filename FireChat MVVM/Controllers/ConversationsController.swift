@@ -15,6 +15,7 @@ class ConversationsController : UIViewController {
     private let tableView = UITableView()
     private let reuseIdentifier = "ConversationCell"
     private var conversations = [Conversation]()
+    private var conversationsDictionary = [String: Conversation]()
     
     private let newMessageButton: UIButton = {
         let button = UIButton(type: .system)
@@ -38,7 +39,6 @@ class ConversationsController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar(withTitle: "Messages", prefersLargeTitles: true)
-
     }
     
     // Mark: - Selectors
@@ -48,9 +48,6 @@ class ConversationsController : UIViewController {
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
-        
-//        logout()
-//        authenticateUser()
     }
     
     @objc func showNewMessage() {
@@ -81,8 +78,16 @@ class ConversationsController : UIViewController {
     }
     
     func fetchConversations() {
+        showLoader(true)
+        
         Service.fetchConversations { (conversations) in
-            self.conversations = conversations
+            conversations.forEach({ (conversation) in
+                let message = conversation.message
+                self.conversationsDictionary[message.chatPartnerId] = conversation
+            })
+            self.showLoader(false)
+            
+            self.conversations = Array(self.conversationsDictionary.values)
             self.tableView.reloadData()
         }
     }
@@ -123,6 +128,7 @@ class ConversationsController : UIViewController {
     func presentLoginScreen() {
         DispatchQueue.main.async {
             let controller = LoginController()
+            controller.delegate = self
             let nav = UINavigationController(rootViewController: controller)
             nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true, completion: nil)
@@ -149,10 +155,11 @@ extension ConversationsController : UITableViewDelegate {
         showChatController(forUser: user)
     }
 }
+
 extension ConversationsController: NewMessageControllerDelegate {
     func controller(_ controller: NewMessageController, wantsToStartChatWith user: User) {
         print(user.username)
-        controller.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
         showChatController(forUser: user)
     }
@@ -161,5 +168,13 @@ extension ConversationsController: NewMessageControllerDelegate {
 extension ConversationsController: ProfileControllerDelegate {
     func handleLogout() {
         logout()
+    }
+}
+
+extension ConversationsController: AuthenticationDelegate {
+    func authenticationComplete() {
+        dismiss(animated: true, completion: nil)
+        configureUI()
+        fetchConversations()
     }
 }
